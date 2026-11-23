@@ -1,0 +1,12 @@
+[
+  {"id":"termas","c":"#e2691a","n":{"es":"Termas","en":"Hot springs","pt":"Termas"}},
+  {"id":"naturaleza","c":"#3f8f3a","n":{"es":"Saltos y naturaleza","en":"Waterfalls & nature","pt":"Cachoeiras e natureza"}},
+  {"id":"parques","c":"#466420","n":{"es":"Parques nacionales","en":"National parks","pt":"Parques nacionais"}},
+  {"id":"aventura","c":"#b07d00","n":{"es":"Aventura","en":"Adventure","pt":"Aventura"}},
+  {"id":"familia","c":"#8a5cc7","n":{"es":"Familia","en":"Family","pt":"Família"}},
+  {"id":"lago","c":"#1f7f8a","n":{"es":"Lago Villarrica","en":"Lake Villarrica","pt":"Lago Villarrica"}},
+  {"id":"cultura","c":"#c2557a","n":{"es":"Cultura y museos","en":"Culture & museums","pt":"Cultura e museus"}},
+  {"id":"bici","c":"#2f74b5","n":{"es":"Arriendo de bicicletas","en":"Bike rental","pt":"Aluguel de bicicletas"}},
+  {"id":"transporte","c":"#5f6b70","n":{"es":"Buses y transporte","en":"Buses & transport","pt":"Ônibus e transporte"}},
+  {"id":"servicios","c":"#8a7a1f","n":{"es":"Cambio y servicios","en":"Exchange & services","pt":"Câmbio e serviços"}}
+]
