@@ -230,3 +230,37 @@ body.solo .phone .screen{border-radius:0;min-height:100vh}
 .app-phone .cat svg{width:22px;height:22px}
 .app-phone .qcard .v{font-size:19px}
 .app-phone .emerg b{font-size:19px}
+
+/* ---------- clima ---------- */
+.wxcard{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:12px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--slate-2);background:var(--slate)}
+.wxcard svg{display:block}
+.wx-temp{font-family:var(--display);font-size:34px;font-weight:700;line-height:1}
+.wx-t b{display:block;font-size:15px}
+.wx-t small{display:block;color:var(--fog);font-size:12.5px}
+.wx-go{color:var(--lake);font-size:22px}
+.wxnow{display:flex;align-items:center;gap:16px}
+.wxnow svg{display:block;flex:none}
+.wxbig{font-family:var(--display);font-size:64px;font-weight:800;line-height:.95}
+.wxdesc{display:block;font-size:18px}
+.wxfeel{color:var(--fog)}
+.wxtips{display:grid;gap:6px}
+.wxtips span{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:10px;background:#fff0e1;color:#8a4300}
+.screen.night .wxtips span{background:#3d2410;color:#ffc58f}
+.wxdata{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:0}
+.wxdata div{background:var(--slate);border:1px solid var(--slate-2);border-radius:12px;padding:9px 12px}
+.wxdata dt{color:var(--fog);font-size:12px;font-weight:600}
+.wxdata dd{margin:2px 0 0;font-size:16px;font-weight:700}
+.wxhours{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.wxhours li{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px;border-radius:12px;background:var(--slate);border:1px solid var(--slate-2);font-size:12px}
+.wxhours b{font-size:16px}
+.wxhours small{color:#2f74b5;font-weight:700}
+.wxdays{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.wxdays li{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1.2fr) auto 40px;align-items:center;gap:10px;padding:8px 12px;border-radius:12px;background:var(--slate);border:1px solid var(--slate-2);font-size:14px}
+.wxday{font-weight:700;text-transform:capitalize}
+.wxdd{color:var(--fog);font-size:13px}
+.wxdays small{color:#2f74b5;font-weight:700;text-align:right}
+.screen.night .wxhours small,.screen.night .wxdays small{color:#7fb6ea}
+.wxsrc{margin:0;color:var(--fog);font-size:11.5px}
+.app-phone .wxhours li{padding:8px 0}
+.app-phone .wxdays li{grid-template-columns:minmax(0,1fr) 30px auto 34px}
+.app-phone .wxdd{display:none}

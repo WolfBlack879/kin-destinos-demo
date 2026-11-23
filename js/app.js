@@ -83,6 +83,7 @@ class App{
     else if(v.name==="list") body=this.listHTML(n);
     else if(v.name==="place") body=this.placeHTML(n);
     else if(v.name==="map") body=this.mapHTML();
+    else if(v.name==="clima") body=climaVistaHTML(this);
     this.el.innerHTML = `<div class="app app-${this.mode}">
       <div class="top"><div class="place"><h1>${this.t("place")}</h1><span>${this.t("sub")}</span></div>
         <div class="clock"><b class="num">${String(n.hh).padStart(2,"0")}:${String(n.mm).padStart(2,"0")}</b><span>${esc(dateStr)}</span></div></div>
@@ -115,6 +116,7 @@ class App{
       <label class="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
         <input id="q-${this.mode}" type="search" placeholder="${esc(this.t("search"))}" value="${esc(this.q)}" aria-label="${esc(this.t("search"))}"></label>
       <div class="sectionlabel">${this.t("now")}</div>
+      ${climaTarjetaHTML(this)}
       <div class="quick">
         <button class="qcard" data-place="bushuife"><span class="k">${this.t("nextHuife")}</span><span class="v num">${hf.next||"—"}</span><span class="s">${hf.next?"Terminal Pullman · Palguín 555":this.t("none")}</span></button>
         <button class="qcard" data-place="busherq"><span class="k">${this.t("nextHuer")}</span><span class="v num">${hq.next||"—"}</span><span class="s">${hq.next?"Terminal Caburgua · Uruguay 540":this.t("none")}</span></button>
@@ -196,6 +198,7 @@ class App{
       if(b.dataset.act==="wake"){ track("session",{src:this.mode}); return this.go({name:"home"}); }
       if(b.dataset.act==="home"){ this.q=""; return this.go({name:"home"}); }
       if(b.dataset.act==="list") return this.go(this.view.prev||{name:"home"});
+      if(b.dataset.act==="clima"){ track("clima",{lang:this.L,src:this.mode}); return this.go({name:"clima"}); }
       if(b.dataset.act==="map"){ track("map",{lang:this.L,src:this.mode}); return this.go({name:"map"}); }
       if(b.dataset.mapcat){ this.mapCat=b.dataset.mapcat; this.el.querySelectorAll("[data-mapcat]").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); return dibujarMarcadores(this,true); }
       if(b.dataset.act==="scan"){ track("qr",{id:b.dataset.id,lang:this.L,src:this.mode}); return window.openPhone(b.dataset.id,this.L); }
@@ -277,9 +280,11 @@ async function iniciar(){
     document.querySelectorAll("[data-dm]").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); applyDayMode(); });
   document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>showView(b.dataset.view));
   if(!route()) showView("totem");
+  cargarClima();
+  setInterval(cargarClima, WX.cadaMin*60*1000);
   window.addEventListener("hashchange",route);
   // mantener al día el reloj, "abierto ahora" y el modo día/noche
   setInterval(()=>{ const a=state.view==="totem"?state.totem:(state.view==="phone"?state.phone:null);
-    if(a && ["home","list"].includes(a.view.name) && !document.activeElement.matches("input")) a.render(); applyDayMode(); },60000);
+    if(a && ["home","list","clima"].includes(a.view.name) && !document.activeElement.matches("input")) a.render(); applyDayMode(); },60000);
 }
 iniciar();
