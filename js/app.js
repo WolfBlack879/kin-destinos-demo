@@ -100,6 +100,7 @@ class App{
       <h2>Pucón</h2>
       <div class="rot" id="rot-${this.mode}">Bienvenido · Welcome · Bem-vindo</div>
       <span class="tap">Toca para comenzar · Tap to start</span>
+      <span class="brandmark" aria-label="KIN Destinos"><b>KIN</b> Destinos</span>
     </button>`;
   }
   rotate(){
